@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
     <head>
         <title>Test your reaction</title>
@@ -91,3 +92,98 @@
         </script>    
     </body>
 </html>
+=======
+<html>
+    <head>
+        <title>Test your reaction</title>
+    
+        <style type="text/css">
+    
+            #shape{
+                position: relative;
+                width: 100px;
+                height: 90px;
+                float: left;
+                display: none;
+            }
+            #shape:before,
+            #shape:after{
+                position: absolute;
+                content: "";
+                left: 50px;
+                top: 0;
+                width: 50px;
+                height: 80px;
+                background: #fc2e5a;
+                -moz-border-radius: 50px 50px 0 0;
+                border-radius: 50px 50px 0 0;
+                -webkit-transform: rotate(-45deg);
+                   -moz-transform: rotate(-45deg);
+                    -ms-transform: rotate(-45deg);
+                     -o-transform: rotate(-45deg);
+                        transform: rotate(-45deg);
+                -webkit-transform-origin: 0 100%;
+                   -moz-transform-origin: 0 100%;
+                    -ms-transform-origin: 0 100%;
+                     -o-transform-origin: 0 100%;
+                        transform-origin: 0 100%;
+            }
+            #shape:after{
+                left: 0;
+                -webkit-transform: rotate(45deg);
+                   -moz-transform: rotate(45deg);
+                    -ms-transform: rotate(45deg);
+                     -o-transform: rotate(45deg);
+                        transform: rotate(45deg);
+                -webkit-transform-origin: 100% 100%;
+                   -moz-transform-origin: 100% 100%;
+                    -ms-transform-origin: 100% 100%;
+                     -o-transform-origin: 100% 100%;
+                        transform-origin :100% 100%;
+            }
+           
+        </style>
+    </head>
+    
+    <body>
+        
+        <h1><p>how is your reaction ?</p></h1>
+        <p>your reaction: <span id="reaction"></span></p>
+        <div id="shape"></div>
+        
+        <script type="text/javascript">
+            
+            var start = new Date().getTime();
+            function makeShapeApear(){
+            
+                var top = Math.random() * 600;
+                var left = Math.random() * 700;
+                document.getElementById("shape").style.top = top + "px";
+                document.getElementById("shape").style.left = left + "px";
+                document.getElementById("shape").style.display = "block";
+                start = new Date().getTime();
+            
+            }
+            
+            function appearAfterDeley(){
+                
+                setTimeout(makeShapeApear, (Math.random() * 2000));    
+            
+            }
+            
+            appearAfterDeley();
+            
+            document.getElementById("shape").onclick = function(){   
+                
+                document.getElementById("shape").style.display = "none";
+                var end = new Date().getTime();
+                var time = (end - start) / 1000;
+                document.getElementById("reaction").innerHTML = time + "s";
+                appearAfterDeley();
+        
+            }
+            
+        </script>    
+    </body>
+</html>
+>>>>>>> 79e2b69eb28a96f1532124551f04c395e455c52a
